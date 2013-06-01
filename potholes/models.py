@@ -12,8 +12,8 @@ class Pothole(models.Model):
     long = models.FloatField()
     tweet_id = models.IntegerField()
     reporter_id = models.IntegerField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='./')
     image_md5 = models.CharField(max_length=32)
-    see_click_fix_url = models.URLField(upload_to='./')
+    see_click_fix_url = models.URLField()
     
     

@@ -13,7 +13,7 @@ class Pothole(models.Model):
     tweet_id = models.IntegerField()
     reporter_id = models.IntegerField()
     image = models.ImageField()
-    image_md5 = models.CharField(maxlength=32)
-    see_click_fix_url = models.URLField(required=False)
+    image_md5 = models.CharField(max_length=32)
+    see_click_fix_url = models.URLField()
     
     

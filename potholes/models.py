@@ -14,6 +14,6 @@ class Pothole(models.Model):
     reporter_id = models.IntegerField()
     image = models.ImageField()
     image_md5 = models.CharField(max_length=32)
-    see_click_fix_url = models.URLField(required=False)
+    see_click_fix_url = models.URLField()
     
     

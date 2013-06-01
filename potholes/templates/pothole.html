@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+	<!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+	<![endif]-->
+	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100%; width: 100% }
+      #map-container { height: 400px; width: 100% }
+	  #pothole-picture { max-height: 100%; max-width: 100% }
+	  #pothole-picture-container { height: 300px; text-align: center } 
+	  #content { width: 500px; margin-left: auto; margin-right:auto }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+    <script type="text/javascript">
+	
+	var pothole_data = [
+		{ coordinate_lat: 40.44959, coordinate_long: -79.943673,
+		  img_src: "https://pbs.twimg.com/media/BLsXD42CcAAKbqO.jpg:small",
+		  id: "pothole1"
+		  },
+		{ coordinate_lat: 40.44450, coordinate_long: -79.941779,
+		  img_src: "http://cvcl.mit.edu/hybrid/cat2.jpg",
+		  id: "pothole2"
+		  }
+		]
+	$(document).ready(function() {
+		<!--var map = L.map('map-canvas').setView([40.44956, -79.941673], 13);-->
+		var mapOptions = {
+			center: new google.maps.LatLng(40.44956, -79.941673),
+			zoom: 12,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map-canvas"),
+			mapOptions);
+		
+		var infowindow = new google.maps.InfoWindow({"maxWidth":200});
+		
+		function createListener(marker, pothole) {
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.setContent("<img src=\"" + pothole.img_src + "\" max-height: 100% max-width: 100%/>");
+				infowindow.open(map, marker);
+				$("#pothole-picture").attr("src", pothole.img_src);
+			});
+		}
+
+		pothole_data.forEach( function( pothole ) {
+		  var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(pothole.coordinate_lat, pothole.coordinate_long),
+			map: map
+		  });
+		  createListener(marker, pothole);
+		});
+		
+	});
+	
+    </script>
+  </head> 
+  <body>
+	<div id="content">
+		<h1>PghPotholes</h1>
+		<!--<div id="pothole-picture-container">
+			<h2>Selected Pothole:</h2>
+			<img id="pothole-picture" src="https://pbs.twimg.com/media/BLsXD42CcAAKbqO.jpg:small"/>
+		</div>-->
+		<h2>Pothole Map:</h2>
+		<div id="map-container">
+			<div id="map-canvas" ></div>
+		</div>
+		<br/>
+		<div id="map-options">
+			<h2>
+				Overlays:
+			</h2>
+			<form>
+				<label for="voting-checkbox">Voting</label>
+				<input type="checkbox" id="voting-checkbox" />
+				
+				<label for="income-checkbox">Median Income</label>
+				<input type="checkbox" id="income-checkbox"/>
+			</form>
+		</div>
+	</div>
+  </body>
+</html>

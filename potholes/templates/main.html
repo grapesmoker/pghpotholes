@@ -1,14 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="{{ STATIC_URL }}geogame_base.css" type="text/css"/>
-  <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.10.1.js"></script>
-  <script type="text/javascript" src="{{ STATIC_URL }}js/potholes.js"></script>
+  	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+  	<!--[if lte IE 8]>
+    		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+	<![endif]-->
+	
+	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+  	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.10.1.js"></script>
+  	<script type="text/javascript" src="{{ STATIC_URL }}js/potholes.js"></script>
   
-  <title>{% block title %}{% endblock %}</title>
+  	<link rel="stylesheet" src="{{ STATIC_URL }}css/potholes.css" />
+  
+	<title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 	<div id="container">
-		welcome to pghpotholes
+		<div id="map">
+			
+		</div>
 	</div>
 </body>

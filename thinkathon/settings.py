@@ -166,8 +166,8 @@ LOGGING = {
     }
 }
 
-#from potholes import tasks
+from potholes import tasks
 
-#tasks.twist_listener()
+tasks.twist_listener()
 
 

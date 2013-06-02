@@ -19,7 +19,14 @@ def main(request):
                               {'title': 'pghpotholes'},
                               context_instance=RequestContext(request))
     
-    
+@csrf_exempt
 def getdata(request):
     
-    pass
+    all_potholes = Pothole.objects.all()
+    data = []
+    for pothole in all_potholes:
+        data.append({'lat': pothole.lat,
+                     'lng': pothole.long})
+        
+    if request.is_ajax():
+        return HttpResponse(simplejson.dumps(data), "application/json")

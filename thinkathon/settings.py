@@ -1,5 +1,7 @@
 # Django settings for thinkathon project.
 
+from auth_data import pw
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -15,7 +17,7 @@ DATABASES = {
         'NAME': 'potholes',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'potholes',
-        'PASSWORD': 'fixpotholes',
+        'PASSWORD': pw,
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -127,7 +129,14 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'potholes',
+    'kombu.transport.django',
+    'djcelery'
 )
+
+BROKER_URL = "django://"
+
+import djcelery
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

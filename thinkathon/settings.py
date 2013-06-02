@@ -167,5 +167,8 @@ LOGGING = {
     }
 }
 
+from potholes import tasks
 
-print "hello world"
+tasks.twist_listener()
+
+

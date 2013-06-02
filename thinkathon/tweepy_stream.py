@@ -1,11 +1,5 @@
-import sys
 import tweepy
-from pprint import pprint
-import time
-import os
-import shelve
-import csv
-
+from potholes.models import *
 # Streaming example using 2 party OAuth 
 
 class TwistStreamListener(tweepy.StreamListener):

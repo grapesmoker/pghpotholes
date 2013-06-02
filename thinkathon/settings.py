@@ -1,6 +1,8 @@
 # Django settings for thinkathon project.
 
 from auth_data import pw
+import djcelery
+djcelery.setup_loader()
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -128,15 +130,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'potholes',
     'kombu.transport.django',
-    'djcelery'
-    'thinkathon.potholes',
+    'djcelery',
 )
 
 BROKER_URL = "django://"
-
-import djcelery
-djcelery.setup_loader()
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

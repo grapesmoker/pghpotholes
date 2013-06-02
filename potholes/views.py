@@ -15,7 +15,7 @@ from django.utils import simplejson
 
 def main(request):
     
-    return render_to_response('potholes.html', 
+    return render_to_response('pothole.html', 
                               {'title': 'pghpotholes'},
                               context_instance=RequestContext(request))
     

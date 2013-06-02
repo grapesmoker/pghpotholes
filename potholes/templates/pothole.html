@@ -40,14 +40,15 @@
                  id: "pothole2"
                  }
                ];
-
+	
 		$.getJSON("http://pghpotholes.com:8000/getdata/", function(result) {
-			pothole_data.forEach( function( pothole ) {
-			  var marker = new google.maps.Marker({
+			result.forEach( function( pothole ) {
+				// console.log(pothole)
+			  	var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(pothole.lat, pothole.lng),
 				map: map
-				});
-			  createListener(marker, pothole);
+			});
+			createListener(marker, pothole);
 			});
 		});
 

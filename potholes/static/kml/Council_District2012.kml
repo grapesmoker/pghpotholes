@@ -3,76 +3,33 @@
 <Document>
 	<name>Council_District2012.kml</name>
 	<open>1</open>
-	<Style id="style">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<Style id="style0">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<Style id="style1">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<Style id="style2">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<Style id="style3">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<Style id="style4">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<Style id="style5">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
+	<StyleMap id="stylemap_id6">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style5</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="stylemap_id7">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style14</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style9</styleUrl>
+		</Pair>
+	</StyleMap>
 	<Style id="style6">
 		<LineStyle>
 			<color>ffffaa55</color>
 			<width>3</width>
 		</LineStyle>
 		<PolyStyle>
-			<fill>0</fill>
+			<color>ff67fff3</color>
 		</PolyStyle>
 	</Style>
 	<Style id="style7">
@@ -81,16 +38,34 @@
 			<width>3</width>
 		</LineStyle>
 		<PolyStyle>
-			<fill>0</fill>
+			<color>bfffaaaa</color>
 		</PolyStyle>
 	</Style>
-	<Style id="style8">
+	<Style id="style10">
 		<LineStyle>
 			<color>ffffaa55</color>
 			<width>3</width>
 		</LineStyle>
 		<PolyStyle>
-			<fill>0</fill>
+			<color>bf7faaaa</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style5">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bfff55ff</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style2">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bfffaaff</color>
 		</PolyStyle>
 	</Style>
 	<Style id="style9">
@@ -99,39 +74,27 @@
 			<width>3</width>
 		</LineStyle>
 		<PolyStyle>
-			<fill>0</fill>
+			<color>bf97aa91</color>
 		</PolyStyle>
 	</Style>
-	<StyleMap id="stylemap_id8">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style6</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style1</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="stylemap_id4">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style15</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style10</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="stylemap_id0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style3</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style16</styleUrl>
-		</Pair>
-	</StyleMap>
+	<Style id="style12">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bf00aaff</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style16">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>80ffffaa</color>
+		</PolyStyle>
+	</Style>
 	<StyleMap id="stylemap_id5">
 		<Pair>
 			<key>normal</key>
@@ -142,13 +105,40 @@
 			<styleUrl>#style</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="style10">
+	<Style id="style15">
 		<LineStyle>
 			<color>ffffaa55</color>
 			<width>3</width>
 		</LineStyle>
 		<PolyStyle>
-			<fill>0</fill>
+			<color>bf7faaaa</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style0">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bfff55ff</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style3">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>80ffffaa</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style8">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bfffaaaa</color>
 		</PolyStyle>
 	</Style>
 	<Style id="style11">
@@ -157,26 +147,7 @@
 			<width>3</width>
 		</LineStyle>
 		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<StyleMap id="stylemap_id1">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style2</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style13</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style12">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
+			<color>bf00aaff</color>
 		</PolyStyle>
 	</Style>
 	<StyleMap id="stylemap_id2">
@@ -189,43 +160,6 @@
 			<styleUrl>#style11</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="style13">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<Style id="style14">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
-	<StyleMap id="stylemap_id7">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style14</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style9</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style15">
-		<LineStyle>
-			<color>ffffaa55</color>
-			<width>3</width>
-		</LineStyle>
-		<PolyStyle>
-			<fill>0</fill>
-		</PolyStyle>
-	</Style>
 	<StyleMap id="stylemap_id3">
 		<Pair>
 			<key>normal</key>
@@ -236,23 +170,89 @@
 			<styleUrl>#style8</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="style16">
+	<StyleMap id="stylemap_id1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style13</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="style14">
 		<LineStyle>
 			<color>ffffaa55</color>
 			<width>3</width>
 		</LineStyle>
 		<PolyStyle>
-			<fill>0</fill>
+			<color>bf97aa91</color>
 		</PolyStyle>
 	</Style>
-	<StyleMap id="stylemap_id6">
+	<Style id="style1">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>ff67fff3</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style13">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bfffaaff</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="stylemap_id8">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#style5</styleUrl>
+			<styleUrl>#style6</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#style0</styleUrl>
+			<styleUrl>#style1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="stylemap_id0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style16</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="style">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bf7fffaa</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style4">
+		<LineStyle>
+			<color>ffffaa55</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>bf7fffaa</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="stylemap_id4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style15</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style10</styleUrl>
 		</Pair>
 	</StyleMap>
 	<Folder>
@@ -264,11 +264,10 @@
 510 City County Building
 414 Grant Street
 Pittsburgh, PA 15219
-(412)-255-2137
-]]></description>
+(412)-255-2137]]></description>
 			<styleUrl>#stylemap_id0</styleUrl>
 			<ExtendedData>
-				<SchemaData schemaUrl="#Council_District_2012_Projected">
+				<SchemaData schemaUrl="/home/rmasher/Downloads/Council_District2012.kml#Council_District_2012_Projected">
 					<SimpleData name="OBJECTID">1</SimpleData>
 					<SimpleData name="INTPTLAT10">+40.4645186</SimpleData>
 					<SimpleData name="INTPTLON10">-079.8928521</SimpleData>
@@ -281,7 +280,6 @@ Pittsburgh, PA 15219
 					<SimpleData name="Shape_Area">178082850.03600001000</SimpleData>
 				</SchemaData>
 			</ExtendedData>
-			<gx:balloonVisibility>1</gx:balloonVisibility>
 			<Polygon>
 				<outerBoundaryIs>
 					<LinearRing>
@@ -332,8 +330,7 @@ http://pittsburghpa.gov/district1/
 414 Grant Street
 Pittsburgh, PA 15219
 Office: 412-255-2135
-Office Fax: 412-255-2129
-]]></description>
+Office Fax: 412-255-2129]]></description>
 			<styleUrl>#stylemap_id2</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#Council_District_2012_Projected">
@@ -365,11 +362,10 @@ Office Fax: 412-255-2129
 http://www.pittsburghpa.gov/district6/welcome
 414 Grant Street, 5th Floor | City County Building
 Pittsburgh, PA 15219
-telephone: 412-255-2134 | facsimile 412-255-0737
-]]></description>
+telephone: 412-255-2134 | facsimile 412-255-0737]]></description>
 			<styleUrl>#stylemap_id3</styleUrl>
 			<ExtendedData>
-				<SchemaData schemaUrl="#Council_District_2012_Projected">
+				<SchemaData schemaUrl="/home/rmasher/Downloads/Council_District2012.kml#Council_District_2012_Projected">
 					<SimpleData name="OBJECTID">25</SimpleData>
 					<SimpleData name="INTPTLAT10">+40.4418723</SimpleData>
 					<SimpleData name="INTPTLON10">-079.9888051</SimpleData>
@@ -440,8 +436,7 @@ Fax: 412-255-8950]]></description>
 		</Placemark>
 		<Placemark>
 			<name>Theresa Kail-Smith</name>
-			<description><![CDATA[
-http://www.city.pittsburgh.pa.us/district2/
+			<description><![CDATA[http://www.city.pittsburgh.pa.us/district2/
 Telephone: 412-255-8963
  Fax: 412-255-2821
 
@@ -449,8 +444,7 @@ Address:
 City-County Building
  Suite 510/Floor 5
 414 Grant Street
- Pittsburgh, PA 15219<img src="http://www.city.pittsburgh.pa.us/district2/09_kail-smith.jpg"/>
-]]></description>
+ Pittsburgh, PA 15219<img src="http://www.city.pittsburgh.pa.us/district2/09_kail-smith.jpg"/>]]></description>
 			<styleUrl>#stylemap_id5</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#Council_District_2012_Projected">
@@ -485,8 +479,7 @@ http://pittsburghpa.gov/district8/
 510 City-County Building
 Pittsburgh, PA 15219
 (p) 412.255.2133
-(f) 412.255.0738
-]]></description>
+(f) 412.255.0738]]></description>
 			<styleUrl>#stylemap_id6</styleUrl>
 			<ExtendedData>
 				<SchemaData schemaUrl="#Council_District_2012_Projected">

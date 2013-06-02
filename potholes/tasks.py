@@ -4,21 +4,8 @@ import tweepy
 
 class TwistStreamListener(tweepy.StreamListener):
     
-    def __init__(self):
-        super(tweepy.StreamListener, self)
-        from thinkathon.auth_data import access_token_key, access_token_secret, consumer_key, consumer_secret
-        self.access_token_key = access_token_key
-        self.access_token_secret = access_token_secret
-        self.consumer_key = consumer_key
-        self.consumer_secret = consumer_secret
-        
-        self.auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
-        self.auth.set_access_token(self.access_token_key, self.access_token_secret)
-    
-        self.hashtag = 'pghpotholes'
-        self.filter_timeout = 60
-        self.sleep_time1 = 6
-        self.sleep_time2 = 60
+    #def __init__(self):   
+    #    super(tweepy.StreamListener, self)
     
     def on_status(self, status):
         try:
@@ -43,9 +30,20 @@ class TwistStreamListener(tweepy.StreamListener):
 
 def twist_listener():
     twist = TwistStreamListener()
-    streaming = tweepy.streaming.Stream(twist.auth, TwistStreamListener(), timeout = twist.filter_timeout)
-    print "Starting stream listener to look for hashtag " + twist.hashtag
-    queryTerms = [twist.hashtag]
+    
+    from thinkathon.auth_data import access_token_key, access_token_secret, consumer_key, consumer_secret
+        
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token_key, access_token_secret)
+    
+    hashtag = 'pghpotholes'
+    filter_timeout = 60
+    sleep_time1 = 6
+    sleep_time2 = 60
+    
+    streaming = tweepy.streaming.Stream(auth, TwistStreamListener(), timeout = twist.filter_timeout)
+    print "Starting stream listener to look for hashtag " + hashtag
+    queryTerms = [hashtag]
     streaming.filter(follow=None, track=queryTerms)
     
     

@@ -136,7 +136,7 @@ INSTALLED_APPS = (
 BROKER_URL = "django://"
 
 import djcelery
-
+djcelery.setup_loader()
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -167,8 +167,8 @@ LOGGING = {
     }
 }
 
-from potholes import tasks
+#from potholes import tasks
 
-tasks.twist_listener()
+#tasks.twist_listener()
 
 

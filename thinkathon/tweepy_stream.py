@@ -8,16 +8,6 @@ import csv
 
 # Streaming example using 2 party OAuth 
 
-
-# turn off output buffering on stdout
-sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
-
-#hashtag="pghpotholessean"
-hashtag="pghpotholes"
-FILTER_TIMEOUT = 60
-SLEEP_TIME1 = 6
-SLEEP_TIME2 = 60
-
 class TwistStreamListener(tweepy.StreamListener):
     
     def __init__(self):
@@ -30,6 +20,11 @@ class TwistStreamListener(tweepy.StreamListener):
         
         self.auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
         self.auth.set_access_token(self.access_token_key, self.access_token_secret)
+    
+        self.hashtag = 'pghpotholes'
+        self.filter_timeout = 60
+        self.sleep_time1 = 6
+        self.sleep_time2 = 60
     
     def on_status(self, status):
         try:
@@ -51,12 +46,11 @@ class TwistStreamListener(tweepy.StreamListener):
         return True # Don't kill the stream
 
 
-twist = TwistStreamListener()
-streaming = tweepy.streaming.Stream(auth, TwistStreamListener(), timeout = FILTER_TIMEOUT)
-print "Starting stream listener to look for hashtag "+hashtag
-queryTerms = [hashtag]
-streaming.filter(follow=None, track=queryTerms)
-
-print "Twist is existing."
+def twist_listener():
+    twist = TwistStreamListener()
+    streaming = tweepy.streaming.Stream(twist.auth, TwistStreamListener(), timeout = twist.filter_timeout)
+    print "Starting stream listener to look for hashtag "+hashtag
+    queryTerms = [hashtag]
+    streaming.filter(follow=None, track=queryTerms)
 
 

@@ -40,18 +40,19 @@
                  id: "pothole2"
                  }
                ];
-
-			   //$.getJSON("http://pghpotholes.com/getdata/", function(result){
-			pothole_data.forEach( function( pothole ) {
-			  var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(pothole.coordinate_lat, pothole.coordinate_long),
+	
+		$.getJSON("http://pghpotholes.com:8000/getdata/", function(result) {
+			result.forEach( function( pothole ) {
+				// console.log(pothole)
+			  	var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(pothole.lat, pothole.lng),
 				map: map
-				});
-			  createListener(marker, pothole);
 			});
-		//});
+			createListener(marker, pothole);
+			});
+		});
 
-		$.getJSON("http://seeclickfix.com/api/issues.json?at=Pittsburgh,+PA&query=pothole", function(scf_data) {
+		/*$.getJSON("http://seeclickfix.com/api/issues.json?at=Pittsburgh,+PA&query=pothole", function(scf_data) {
 			scf_data.forEach( function( pothole ) {
 			  var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(pothole.lat, pothole.lng),
@@ -62,7 +63,7 @@
 				infowindow.open(map, marker);
 			  });
 			});
-		});
+		});*/
 
 		$(':input[name=overlays]').each( function () {
 			$(this).change( function () {

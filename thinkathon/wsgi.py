@@ -30,3 +30,13 @@ application = get_wsgi_application()
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
+
+
+from potholes import tasks
+from threading import Thread
+
+print 'fooo'
+
+twitter_thread = Thread(target=tasks.twist_listener)
+twitter_thread.setDaemon(True)
+twitter_thread.start()

@@ -41,15 +41,15 @@
                  }
                ];
 
-			   //$.getJSON("http://pghpotholes.com/getdata/", function(result){
+		$.getJSON("http://pghpotholes.com:8000/getdata/", function(result) {
 			pothole_data.forEach( function( pothole ) {
 			  var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(pothole.coordinate_lat, pothole.coordinate_long),
+				position: new google.maps.LatLng(pothole.lat, pothole.lng),
 				map: map
 				});
 			  createListener(marker, pothole);
 			});
-		//});
+		});
 
 		$.getJSON("http://seeclickfix.com/api/issues.json?at=Pittsburgh,+PA&query=pothole", function(scf_data) {
 			scf_data.forEach( function( pothole ) {

@@ -1,6 +1,13 @@
 from django.conf.urls import patterns, include, url
 from potholes.views import *
 
+from potholes import tasks
+from threading import Thread
+
+twitter_thread = Thread(target=tasks.twist_listener)
+twitter_thread.setDaemon(True)
+twitter_thread.start()
+
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -17,4 +24,5 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^thinkathon/$', main),
     url(r'^$', main),
+    url(r'^getdata/$', getdata),
 )

@@ -157,3 +157,6 @@ LOGGING = {
         },
     }
 }
+
+
+print "hello world"

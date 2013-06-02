@@ -18,64 +18,19 @@ FILTER_TIMEOUT = 60
 SLEEP_TIME1 = 6
 SLEEP_TIME2 = 60
 
-# Replace these four fields (i.e. the part that says FIXME)
-# with the appropriate date from the twitter dev control
-# panel.  
-#
-# NOTE, OAuth can be used in two ways;
-#
-# 1) Your app is logging in as 'you' (using your account, or
-# perhaps a separate account you create just for this app) and
-# so it is rate limited as you (rather than as your IP) and it
-# can only access YOUR private data and any public data
-#
-# 2) Your app is logging in as someone else - i.e you are
-# creating an app for other people to use so it needs to
-# access their account data.  This is called "Third Party
-# OAuth" and is REALLY what OAuth is meant for in the first
-# place - but I'm not going to go into that here.
-#
-# To generate the keys and secrets go to ;
-# https://dev.twitter.com/apps/new log in using your account,
-# and create an application.  It asks for a Callback URL -
-# just leave that blank.  Note that for the 'Your app website'
-# URL, you need to include the http:// part of the url or it
-# will give you an error about invalid URL format.
-#
-# After you create your application it'll take you to a page
-# where the consumer key and secret are displayed.  Copy and
-# paste them below.
-consumer_key=''
-consumer_secret=''
-
-# At the bottom of the page it says;
-#
-# Your access token
-# 
-# It looks like you haven't authorized this application for your own
-# Twitter account yet. For your convenience, we give you the opportunity
-# to create your OAuth access token here, so you can start signing your
-# requests right away. The access token generated will reflect your
-# application's current permission level.
-#
-# Below that is a button, click "Create my Access Token", click it.
-#
-# A message will appear at the top of the screen for a moment;
-#
-# Your OAuth access token has been successfully created.  Note that this
-# may take a moment to reflect.
-# 
-# scroll down to the bottom of the page and look for the
-# access token and secret - if they aren't there yet, wait a
-# bit, reload the page and check again.  Cut and paste them
-# into the fields below.
-access_token_key = ''
-access_token_secret = ''
-
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token_key, access_token_secret)
-
 class TwistStreamListener(tweepy.StreamListener):
+    
+    def __init__(self):
+        super(tweepy.StreamListener, self)
+        from thinkathon.auth_data import access_token_key, access_token_secret, consumer_key, consumer_secret
+        self.access_token_key = access_token_key
+        self.access_token_secret = access_token_secret
+        self.consumer_key = consumer_key
+        self.consumer_secret = consumer_secret
+        
+        self.auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
+        self.auth.set_access_token(self.access_token_key, self.access_token_secret)
+    
     def on_status(self, status):
         try:
             print "%s\t%s\t%s\t%s" % (status.text, 

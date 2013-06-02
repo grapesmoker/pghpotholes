@@ -13,6 +13,15 @@ from django.core.serializers import serialize
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import simplejson
 
+from potholes import tasks
+from threading import Thread
+
+print 'fooo'
+
+twitter_thread = Thread(target=tasks.twist_listener)
+twitter_thread.setDaemon(True)
+twitter_thread.start()
+
 def main(request):
     
     return render_to_response('pothole.html', 

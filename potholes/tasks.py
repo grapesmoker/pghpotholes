@@ -35,7 +35,7 @@ class TwistStreamListener(tweepy.StreamListener):
                     print p, v
                         
                 pothole = Pothole()
-                pothole.reporter_id = status.from_user_id
+                pothole.reporter_id = status.author.id
                 pothole.tweet_id = status.id
                 geo = status.geo
                 print geo

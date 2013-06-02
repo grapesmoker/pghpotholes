@@ -2,34 +2,17 @@
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	{%load staticfiles %}
 	<link rel="stylesheet" type="text/css" href="../static/css/transperia.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/potholes.css" media="screen" />
     <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100%; width: 100% }
-      #map-container { height: 400px; width: 100% }
-	  #pothole-picture { max-height: 100%; max-width: 100%; height: 100% }
-	  #pothole-picture-container { height: 150px; text-align: center } 
-	  #content { width: 500px; margin-left: auto; margin-right:auto }
     </style>
 	<script src="../static/js/jquery-1.10.1.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false">
     </script>
     <script type="text/javascript">
-	var pothole_data = [
-		{ coordinate_lat: 40.44959, coordinate_long: -79.943673,
-		  img_src: "https://pbs.twimg.com/media/BLsXD42CcAAKbqO.jpg:small",
-		  id: "pothole1"
-		  },
-		{ coordinate_lat: 40.44450, coordinate_long: -79.941779,
-		  img_src: "http://cvcl.mit.edu/hybrid/cat2.jpg",
-		  id: "pothole2"
-		  }
-		]
+
 	var kmlLayer = new google.maps.KmlLayer(null);
 	$(document).ready(function() {
-		<!--var map = L.map('map-canvas').setView([40.44956, -79.941673], 13);-->
 		var mapOptions = {
 			center: new google.maps.LatLng(40.440625, -79.970886),
 			zoom: 12,
@@ -42,18 +25,43 @@
 
 		function createListener(marker, pothole) {
 			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.setContent("<div style='height: 100px; width: 100px'><img src=\"" + pothole.img_src + "\" height='100%' /></div>");
+				infowindow.setContent("<div style='height: 100px; width: 100px'><a href=\"http://pittsburghpa.gov/311/form\">Tell the City of PGH</a><br/><img src=\"" + pothole.img_src + "\" height='100%' /></div>");
 				infowindow.open(map, marker);
-				$("#pothole-picture").attr("src", pothole.img_src);
 			});
 		}
 
-		pothole_data.forEach( function( pothole ) {
-		  var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(pothole.coordinate_lat, pothole.coordinate_long),
-			map: map
-		  });
-		  createListener(marker, pothole);
+		var pothole_data = [
+               { coordinate_lat: 40.44959, coordinate_long: -79.943673,
+                 img_src: "https://pbs.twimg.com/media/BLsXD42CcAAKbqO.jpg:small",
+                 id: "pothole1"
+                 },
+               { coordinate_lat: 40.44450, coordinate_long: -79.941779,
+                 img_src: "http://cvcl.mit.edu/hybrid/cat2.jpg",
+                 id: "pothole2"
+                 }
+               ];
+
+			   //$.getJSON("http://pghpotholes.com/getdata/", function(result){
+			pothole_data.forEach( function( pothole ) {
+			  var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(pothole.coordinate_lat, pothole.coordinate_long),
+				map: map
+				});
+			  createListener(marker, pothole);
+			});
+		//});
+
+		$.getJSON("http://seeclickfix.com/api/issues.json?at=Pittsburgh,+PA&query=pothole", function(scf_data) {
+			scf_data.forEach( function( pothole ) {
+			  var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(pothole.lat, pothole.lng),
+				map: map
+			  });
+			  google.maps.event.addListener(marker, 'click', function() {
+				infowindow.setContent("<div style='height: 100px; width: 100px'><h4>"+pothole.summary+"</h4><br/><a href=\""+pothole.bitly+"\">See-Click-Fix</a><p>"+pothole.description+"</p></div>");
+				infowindow.open(map, marker);
+			  });
+			});
 		});
 
 		$(':input[name=overlays]').each( function () {
@@ -63,9 +71,16 @@
 					kmlLayer.setMap(null);
 					kmlLayer = new google.maps.KmlLayer($(this).attr("value"));
 					kmlLayer.setMap(map);
+					if ($("#income-checkbox").prop("checked")) {
+					  $("#map-legend").show();
+					} else {
+					  $("#map-legend").hide();
+					}
 				}
 			});
 		});
+
+		$("#map-legend").hide();
 	});
 	
     </script>
@@ -86,6 +101,7 @@
 					<h2>Pothole Map:</h2>
 					<div id="map-container">
 						<div id="map-canvas" ></div>
+						<div id="map-legend" ><img src="../static/img/Median_Scale_Under_Map.png" width="100%" /></div>
 					</div>
 				</div>
 			</div>
@@ -106,17 +122,14 @@
 							<input type="radio" name="overlays" id="no-overlays-checkbox" checked="checked"/>
 							<label for="no-overlays-checkbox">No Overlay</label>
 							<br/>
-							<input type="radio" name="overlays" id="voting-checkbox" value="{{ STATIC_URL }}/Council_District2012.kml" />
+							<input type="radio" name="overlays" id="voting-checkbox" value="http://pghpotholes.com:8000/static/kml/Council_District2012.kml" />
 							<label for="voting-checkbox">Voting</label>
 							<br/>
 							<input type="radio" name="overlays" id="income-checkbox"/>
 							<label for="income-checkbox">Median Income</label>
 							<br/>
-							<input type="radio" name="overlays" id="bus-checkbox" value="{{ STATIC_URL }}/Bus_Routes.kml"/>
+							<input type="radio" name="overlays" id="bus-checkbox" value="http://pghpotholes.com:8000/static/kml/Bus_Routes.kmz"/>
 							<label for="bus-checkbox">Bus Routes</label>
-							<br/> 
-							<input type="radio" name="overlays" id="chicago-checkbox" value="http://gmaps-samples.googlecode.com/svn/trunk/ggeoxml/cta.kml"/>
-							<label for="chicago-checkbox">Chi-town</label>
 						</form>
 					</li>
 				</ul>

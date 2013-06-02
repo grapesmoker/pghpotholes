@@ -166,5 +166,15 @@ LOGGING = {
     }
 }
 
+if 'thread_started' not in locals():
+    thread_started = False
 
+from potholes import tasks
+from threading import Thread
+
+twitter_thread = Thread(target=tasks.twist_listener)
+twitter_thread.setDaemon(True)
+twitter_thread.start()
+
+thread_started = True
 

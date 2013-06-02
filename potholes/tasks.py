@@ -20,6 +20,7 @@ class TwistStreamListener(tweepy.StreamListener):
             
             geo = status.geo
             if geo is None:
+                print 'No geo information, tweet not saved'
                 for p, v in vars(status).iteritems():
                     print p, v
                 
@@ -29,6 +30,9 @@ class TwistStreamListener(tweepy.StreamListener):
                 #api.update_status('@{0} please turn on geolocation for twitter!'.format(username), tweet_id)
                 
             else:
+                'Geo information exists, saving tweet'
+                for p, v in vars(status).iteritems():
+                    print p, v
                 pothole = Pothole()
                 pothole.reporter_id = status.from_user_id
                 pothole.tweet_id = status.id

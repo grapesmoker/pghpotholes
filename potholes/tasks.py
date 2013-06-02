@@ -39,7 +39,8 @@ class TwistStreamListener(tweepy.StreamListener):
         return True # Don't kill the stream
 
 
-@celery.task()
+#@celery.task()
+
 def twist_listener():
     twist = TwistStreamListener()
     streaming = tweepy.streaming.Stream(twist.auth, TwistStreamListener(), timeout = twist.filter_timeout)

@@ -168,6 +168,11 @@ LOGGING = {
 
 from potholes import tasks
 
-tasks.twist_listener()
+from threading import Thread
+
+twitter_thread = Thread(target=tasks.twist_listener)
+twitter_thread.setDaemon(True)
+twitter_thread.start()
+
 
 

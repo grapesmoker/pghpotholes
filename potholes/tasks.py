@@ -21,8 +21,8 @@ class TwistStreamListener(tweepy.StreamListener):
             geo = status.geo
             if geo is None:
                 print 'No geo information, tweet not saved'
-                for p, v in vars(status).iteritems():
-                    print p, v
+                #for p, v in vars(status).iteritems():
+                #    print p, v
                 
                 tweet_id = status.id
                 username = status.author.screen_name
@@ -31,16 +31,20 @@ class TwistStreamListener(tweepy.StreamListener):
                 
             else:
                 print 'Geo information exists, saving tweet'
-                for p, v in vars(status).iteritems():
-                    print p, v
+                #for p, v in vars(status).iteritems():
+                #    print p, v
                         
                 pothole = Pothole()
                 pothole.reporter_id = status.author.id
                 pothole.tweet_id = status.id
                 geo = status.geo
-                print geo
                 pothole.lat = geo['coordinates'][0]
                 pothole.long = geo['coordinates'][1]
+                entities = status.entities
+                if 'media' in entities.keys():
+                    media = entities['media'][0]
+                    img_url = media['url']
+                    pothole.image_url = img_url
                 pothole.save()
             
         except Exception, e:

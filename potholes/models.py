@@ -15,5 +15,6 @@ class Pothole(models.Model):
     image = models.ImageField(upload_to='./')
     image_md5 = models.CharField(max_length=32)
     see_click_fix_url = models.URLField()
+    image_url = models.URLField()
     
     

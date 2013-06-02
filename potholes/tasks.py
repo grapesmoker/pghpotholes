@@ -25,8 +25,8 @@ class TwistStreamListener(tweepy.StreamListener):
                 
                 tweet_id = status.id
                 username = status.author.screen_name
-                api = tweepy.API(auth)
-                api.update_status('@{0} please turn on geolocation for twitter!'.format(username), tweet_id)
+                #api = tweepy.API(auth)
+                #api.update_status('@{0} please turn on geolocation for twitter!'.format(username), tweet_id)
                 
             else:
                 pothole = Pothole()

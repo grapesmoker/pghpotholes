@@ -130,7 +130,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'kombu.transport.django',
     'djcelery'
-    'potholes',
+    'thinkathon.potholes',
 )
 
 BROKER_URL = "django://"

@@ -41,7 +41,7 @@ def twist_listener():
     sleep_time1 = 6
     sleep_time2 = 60
     
-    streaming = tweepy.streaming.Stream(auth, TwistStreamListener(), timeout = twist.filter_timeout)
+    streaming = tweepy.streaming.Stream(auth, TwistStreamListener(), timeout = filter_timeout)
     print "Starting stream listener to look for hashtag " + hashtag
     queryTerms = [hashtag]
     streaming.filter(follow=None, track=queryTerms)

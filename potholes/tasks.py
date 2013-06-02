@@ -43,7 +43,7 @@ class TwistStreamListener(tweepy.StreamListener):
                 entities = status.entities
                 if 'media' in entities.keys():
                     media = entities['media'][0]
-                    img_url = media['url']
+                    img_url = media['media_url']
                     pothole.image_url = img_url
                 pothole.save()
             

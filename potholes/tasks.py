@@ -30,7 +30,6 @@ class TwistStreamListener(tweepy.StreamListener):
             print 'Exception:', e
             pass
 
-
     def on_error(self, status_code):
         print 'Error, status code:', status_code
         return True # Don't kill the stream
@@ -44,7 +43,7 @@ class TwistStreamListener(tweepy.StreamListener):
 def twist_listener():
     twist = TwistStreamListener()
     streaming = tweepy.streaming.Stream(twist.auth, TwistStreamListener(), timeout = twist.filter_timeout)
-    print "Starting stream listener to look for hashtag "+hashtag
+    print "Starting stream listener to look for hashtag " + twist.hashtag
     queryTerms = [hashtag]
     streaming.filter(follow=None, track=queryTerms)
     

@@ -40,7 +40,7 @@
                  id: "pothole2"
                  }
                ];
-	
+
 		$.getJSON("http://pghpotholes.com:8000/getdata/", function(result) {
 			result.forEach( function( pothole ) {
 				// console.log(pothole)
@@ -123,8 +123,8 @@
 							<input type="radio" name="overlays" id="no-overlays-checkbox" checked="checked"/>
 							<label for="no-overlays-checkbox">No Overlay</label>
 							<br/>
-							<input type="radio" name="overlays" id="voting-checkbox" value="http://pghpotholes.com:8000/static/kml/Council_District2012.kml" />
-							<label for="voting-checkbox">Voting</label>
+							<input type="radio" name="overlays" id="district-checkbox" value="http://pghpotholes.com:8000/static/kml/Council_District2012.kml" />
+							<label for="district-checkbox">Council Districts</label>
 							<br/>
 							<input type="radio" name="overlays" id="income-checkbox"/>
 							<label for="income-checkbox">Median Income</label>

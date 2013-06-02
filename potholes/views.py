@@ -26,7 +26,8 @@ def getdata(request):
     data = []
     for pothole in all_potholes:
         data.append({'lat': pothole.lat,
-                     'lng': pothole.long})
+                     'lng': pothole.long,
+                     'img_url': pothole.image_url})
         
     #if request.is_ajax():
     return HttpResponse(simplejson.dumps(data), "application/json")

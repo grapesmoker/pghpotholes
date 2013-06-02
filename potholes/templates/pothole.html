@@ -25,7 +25,7 @@
 
 		function createListener(marker, pothole) {
 			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.setContent("<div style='height: 100px; width: 100px'><a href=\"http://pittsburghpa.gov/311/form\">Tell the City of PGH</a><br/><img src=\"" + pothole.img_src + "\" height='100%' /></div>");
+				infowindow.setContent("<div style='height: 100px; width: 100px'><a href=\"http://pittsburghpa.gov/311/form\">Tell the City of PGH</a><br/><img src=\"" + pothole.img_url + "\" height='100%' /></div>");
 				infowindow.open(map, marker);
 			});
 		}

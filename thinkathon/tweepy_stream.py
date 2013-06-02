@@ -5,7 +5,6 @@ from potholes.models import *
 class TwistStreamListener(tweepy.StreamListener):
     
     def __init__(self):
-        super(tweepy.StreamListener, self)
         from thinkathon.auth_data import access_token_key, access_token_secret, consumer_key, consumer_secret
         self.access_token_key = access_token_key
         self.access_token_secret = access_token_secret
@@ -19,7 +18,9 @@ class TwistStreamListener(tweepy.StreamListener):
         self.filter_timeout = 60
         self.sleep_time1 = 6
         self.sleep_time2 = 60
-    
+        
+        super(tweepy.StreamListener, self)
+        
     def on_status(self, status):
         try:
             print "%s\t%s\t%s\t%s" % (status.text, 

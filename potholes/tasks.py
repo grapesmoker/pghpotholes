@@ -1,6 +1,6 @@
 import tweepy
-from djcelery import celery
-from models import *
+#from djcelery import celery
+#from models import *
 
 class TwistStreamListener(tweepy.StreamListener):
     

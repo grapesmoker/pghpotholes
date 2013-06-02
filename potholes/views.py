@@ -28,5 +28,5 @@ def getdata(request):
         data.append({'lat': pothole.lat,
                      'lng': pothole.long})
         
-    if request.is_ajax():
-        return HttpResponse(simplejson.dumps(data), "application/json")
+    #if request.is_ajax():
+    return HttpResponse(simplejson.dumps(data), "application/json")

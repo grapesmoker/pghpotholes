@@ -24,7 +24,7 @@ class TwistStreamListener(tweepy.StreamListener):
                     print p, v
                 
                 tweet_id = status.id
-                username = status.from_user_name
+                username = status.author.screen_name
                 api = tweepy.API(auth)
                 api.update_status('@{0} please turn on geolocation for twitter!'.format(username), tweet_id)
                 

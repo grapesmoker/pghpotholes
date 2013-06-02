@@ -166,7 +166,7 @@ LOGGING = {
     }
 }
 
-from thinkathon.potholes import tasks
+from potholes import tasks
 
 tasks.twist_listener()
 

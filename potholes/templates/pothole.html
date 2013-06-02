@@ -52,7 +52,7 @@
 			});
 		});
 
-		$.getJSON("http://seeclickfix.com/api/issues.json?at=Pittsburgh,+PA&query=pothole", function(scf_data) {
+		/*$.getJSON("http://seeclickfix.com/api/issues.json?at=Pittsburgh,+PA&query=pothole", function(scf_data) {
 			scf_data.forEach( function( pothole ) {
 			  var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(pothole.lat, pothole.lng),
@@ -63,7 +63,7 @@
 				infowindow.open(map, marker);
 			  });
 			});
-		});
+		});*/
 
 		$(':input[name=overlays]').each( function () {
 			$(this).change( function () {

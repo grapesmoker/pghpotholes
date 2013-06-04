@@ -4,7 +4,13 @@ from auth_data import pw
 import djcelery
 djcelery.setup_loader()
 
-DEBUG = True
+from environment import PRODUCTION
+
+if PRODUCTION:
+    DEBUG = False
+else:
+    DEBUG = True
+    
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -54,7 +60,10 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/Users/jerry/Documents/workspace/thinkathon/thinkathon/media/'
+if PRODUCTION:
+    MEDIA_ROOT = '/opt/local/apache2/htdocs/pghpotholes/thinkathon/media/'
+else:
+    MEDIA_ROOT = '/Users/jerry/Documents/workspace/thinkathon/thinkathon/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -65,19 +74,27 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/Users/jerry/Documents/workspace/thinkathon/thinkathon/static/'
+if PRODUCTION:
+    STATIC_ROOT = '/opt/local/apache2/htdocs/pghpotholes/thinkathon/static/'
+else:
+    STATIC_ROOT = '/Users/jerry/Documents/workspace/thinkathon/thinkathon/static/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
+if PRODUCTION:
+    STATICFILES_DIRS = (
+        '/opt/local/apache2/htdocs/pghpotholes/potholes/static/',
+    )
+else:
+    STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     '/Users/jerry/Documents/workspace/thinkathon/potholes/static/',
-)
+    )
 
 # List of finder classes that know how to find static files in
 # various locations.

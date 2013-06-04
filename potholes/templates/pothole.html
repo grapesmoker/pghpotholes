@@ -41,7 +41,7 @@
                  }
                ];
 
-		$.getJSON("http://pghpotholes.com:8000/getdata/", function(result) {
+		$.getJSON("/getdata/", function(result) {
 			result.forEach( function( pothole ) {
 				// console.log(pothole)
 			  	var marker = new google.maps.Marker({

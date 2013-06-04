@@ -34,7 +34,7 @@ DATABASES = {
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 if PRODUCTION:
-    ALLOWED_HOSTS = ['matthew.psy.cmu.edu', '127.0.0.1', '128.2.47.40', 'localhost']
+    ALLOWED_HOSTS = ['matthew.psy.cmu.edu', '127.0.0.1', '128.2.47.40', 'localhost', 'pghpotholes.com']
 else:
     ALLOWED_HOSTS = []
 
